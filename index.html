@@ -31,21 +31,36 @@
       <nav>
         <img src="img/logo.png" />
         <ul>
-          <li class="selected">HTML</li>
-          <li>CSS</li>
-          <li>JS</li>
+          <li class="selected" id="html">HTML</li>
+          <li id="css">CSS</li>
+          <li id="js">JS</li>
         </ul>
       </nav>
       <section class="quiz-section">
-        <div class="start-screen">
+        <div class="start-screen" id="start-screen">
           <div class="start-screen-text">
             <h2>Welcome to<br />The Awesome WebDev Quiz</h2>
             <h3>Ready for the Challenge?</h3>
           </div>
           <div class="start-screen-button">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" id="start-button">
               Start Now <i class="bi bi-chevron-compact-right"></i>
             </button>
+          </div>
+        </div>
+        <div class="question-screen display-none" id="question-screen">
+          <h2 class="question">hier steht die frage?</h2>
+          <div class="answer-row">
+            <div class="answer-number">A</div>
+            <div class="answer-text">Robbie Williams</div>
+          </div>
+          <div class="answer-row">
+            <div class="answer-number">B</div>
+            <div class="answer-text">frage 2</div>
+          </div>
+          <div class="answer-row">
+            <div class="answer-number">C</div>
+            <div class="answer-text">frage 3</div>
           </div>
         </div>
       </section>

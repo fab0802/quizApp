@@ -1,3 +1,5 @@
+"use strict";
+
 const quiz = [
   {
     question: "What does HTML stand for?",
