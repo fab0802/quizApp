@@ -60,7 +60,7 @@ nav li {
   background-color: hsl(0, 0%, 97%);
   min-height: 28rem;
   min-width: 45rem;
-  padding: 3rem;
+  padding: 0 3rem;
 }
 
 .start-screen {
@@ -112,9 +112,11 @@ nav li {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
+  margin-bottom: 3rem;
 }
 
-.start-screen-button button {
+.start-screen-button button,
+footer button {
   background-color: hsl(16, 95%, 53%);
   border: 1px solid hsl(14, 65%, 50%);
   display: flex;
@@ -123,17 +125,17 @@ nav li {
   padding: 4px 32px;
 }
 
-.start-screen-button button.btn-primary:hover {
+.start-screen-button button.btn-primary:hover,
+footer button.btn-primary:hover {
   background-color: hsl(16, 95%, 60%);
   border: 1px solid hsl(14, 65%, 50%);
 }
 
 .question-screen {
   height: 100%;
-  padding: 0 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .question-screen h2 {
@@ -148,6 +150,7 @@ nav li {
   font-family: "Rubik", sans-serif;
   background: #ffffff;
   padding: 0.5rem;
+  margin: 0 1.5rem;
   cursor: pointer;
 }
 
@@ -166,4 +169,15 @@ nav li {
   padding-left: 3rem;
   font-size: 1.5rem;
   font-weight: 400;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer button {
+  min-height: 3rem;
+  min-width: 6rem;
 }
