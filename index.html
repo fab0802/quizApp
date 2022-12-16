@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QuizApp</title>
+    <link rel="shortcut icon" href="img/brain result.png" type="image/x-icon" />
     <!-- Icons -->
     <link
       rel="stylesheet"
@@ -31,9 +32,9 @@
       <nav>
         <img src="img/logo.png" />
         <ul>
-          <li class="selected" id="html">HTML</li>
-          <li id="css">CSS</li>
-          <li id="js">JS</li>
+          <li class="selected category" id="html">HTML</li>
+          <li class="category" id="css">CSS</li>
+          <li class="category" id="js">JS</li>
         </ul>
       </nav>
       <section class="quiz-section">
@@ -48,27 +49,11 @@
             </button>
           </div>
         </div>
-        <div class="question-screen display-none" id="question-screen">
-          <h2 class="question">hier steht die frage?</h2>
-          <div class="answer-row">
-            <div class="answer-number">A</div>
-            <div class="answer-text">Robbie Williams</div>
-          </div>
-          <div class="answer-row">
-            <div class="answer-number">B</div>
-            <div class="answer-text">frage 2</div>
-          </div>
-          <div class="answer-row">
-            <div class="answer-number">C</div>
-            <div class="answer-text">frage 3</div>
-          </div>
-          <footer>
-            <div class="questionCounter">Frage 1 von 6</div>
-            <button class="btn btn-primary" id="start-button">Next</button>
-          </footer>
-        </div>
+        <div class="question-screen display-none" id="question-screen"></div>
       </section>
     </main>
-    <script src="script.js"></script>
+    <script src="scripts/quiz.js"></script>
+    <script src="scripts/createHtml.js"></script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

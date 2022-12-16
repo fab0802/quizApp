@@ -42,12 +42,12 @@ const quiz = [
     question: "Inside which HTML element do we put the JavaScript?",
     answers: ["<js>", "<javascript>", "<script>"],
     correctAnswer: 2,
-    category: "javascript",
+    category: "js",
   },
   {
     question: "Where is the correct place to insert a JavaScript?",
     answers: ["The <body> section", "The <head> Section", "Both"],
     correctAnswer: 2,
-    category: "javascript",
+    category: "js",
   },
 ];
