@@ -19,9 +19,9 @@ main {
 
 nav {
   font-family: "Rubik", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: hsl(44, 88%, 97%);
-  background-color: #27355c;
+  background-color: hsl(224, 40%, 26%);
   min-height: 28rem;
   min-width: 12rem;
   position: relative;
@@ -51,8 +51,8 @@ nav ul {
 nav li {
   padding-left: 50px;
   border-left: 4px solid transparent;
-  cursor: pointer;
   opacity: 0.7;
+  cursor: pointer;
 }
 
 nav li:hover,
@@ -60,6 +60,20 @@ nav li:hover,
   border-left: 4px solid hsl(44, 88%, 97%);
   color: hsl(44, 88%, 97%);
   opacity: 1;
+}
+
+nav li.disabled,
+nav li.disabled:hover {
+  border-left: 4px solid transparent;
+  opacity: 0.7;
+  cursor: unset;
+}
+
+nav li.selected.disabled {
+  border-left: 4px solid hsl(44, 88%, 97%);
+  color: hsl(44, 88%, 97%);
+  opacity: 1;
+  cursor: unset;
 }
 
 .quiz-section {
@@ -84,19 +98,15 @@ nav li:hover,
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
   text-align: center;
+  font-size: 2rem;
 }
 
 .start-screen h3 {
   font-family: "PT Sans", sans-serif;
   font-weight: 400;
-  margin-bottom: 32px;
+  margin: 0;
   text-align: center;
-}
-
-.start-screen button {
-  font-family: "PT Sans", sans-serif;
-  font-size: 1.4rem;
-  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 
 .start-screen i {
@@ -123,18 +133,29 @@ nav li:hover,
 
 .start-screen-button button,
 footer button {
-  background-color: hsl(16, 95%, 53%);
-  border: 1px solid hsl(14, 65%, 50%);
+  color: hsl(44, 88%, 97%);
+  background-color: hsl(224, 40%, 26%);
+  border: 1px solid hsl(224, 40%, 52%);
+  border-radius: 0.5rem;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
+  font-family: "PT Sans", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.start-screen-button button.btn-primary:hover,
-footer button.btn-primary:hover {
-  background-color: hsl(16, 95%, 60%);
-  border: 1px solid hsl(14, 65%, 50%);
+footer button.disabled,
+footer button.disabled:hover {
+  background-color: hsla(224, 40%, 52%, 0.75);
+  cursor: not-allowed;
+}
+
+.start-screen-button button:hover,
+footer button:hover {
+  background-color: hsl(224, 40%, 52%);
 }
 
 .question-screen {
@@ -190,7 +211,6 @@ footer {
   align-items: center;
 }
 
-footer button {
-  min-height: 3rem;
-  min-width: 6rem;
+.question-counter {
+  font-family: "Rubik", sans-serif;
 }

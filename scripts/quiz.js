@@ -13,7 +13,7 @@ const quiz = [
   },
   {
     question: "Choose the correct HTML element for the largest heading:",
-    answers: ["<h1>", "<heading>", "<h6>"],
+    answers: ["h1", "heading", "h6"],
     correctAnswer: 0,
     category: "html",
   },
@@ -28,25 +28,20 @@ const quiz = [
     category: "css",
   },
   {
-    question:
-      "What is the correct HTML for referring to an external style sheet?",
-    answers: [
-      '<style src="mystyle.css"',
-      '<link rel="stylesheet" type="text/css" href="mystyle.css">',
-      "<stylesheet>mystyle.css</stylesheet>",
-    ],
-    correctAnswer: 1,
+    question: "Which HTML tag is used to define an internal style sheet?",
+    answers: ["style", "script", "css"],
+    correctAnswer: 0,
     category: "css",
   },
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    answers: ["<js>", "<javascript>", "<script>"],
+    answers: ["js", "javascript", "script"],
     correctAnswer: 2,
     category: "js",
   },
   {
     question: "Where is the correct place to insert a JavaScript?",
-    answers: ["The <body> section", "The <head> Section", "Both"],
+    answers: ["The 'body' section", "The 'head' Section", "Both"],
     correctAnswer: 2,
     category: "js",
   },
