@@ -12,9 +12,9 @@ const quiz = [
     category: "html",
   },
   {
-    question: "Choose the correct HTML element for the largest heading:",
-    answers: ["h1", "heading", "h6"],
-    correctAnswer: 0,
+    question: "How can you make a numbered list?",
+    answers: ["list", "ul", "ol"],
+    correctAnswer: 2,
     category: "html",
   },
   {
@@ -28,15 +28,23 @@ const quiz = [
     category: "css",
   },
   {
-    question: "Which HTML tag is used to define an internal style sheet?",
-    answers: ["style", "script", "css"],
-    correctAnswer: 0,
+    question: "Which is the correct CSS syntax?",
+    answers: [
+      "body:color=black;",
+      "body {color: black;}",
+      "{body:color=black;}",
+    ],
+    correctAnswer: 1,
     category: "css",
   },
   {
-    question: "Inside which HTML element do we put the JavaScript?",
-    answers: ["js", "javascript", "script"],
-    correctAnswer: 2,
+    question: 'How do you write "Hello World" in an alert box?',
+    answers: [
+      'msgBox("Hello World")',
+      'alert("Hello World")',
+      'alertBox("Hello World")',
+    ],
+    correctAnswer: 1,
     category: "js",
   },
   {
