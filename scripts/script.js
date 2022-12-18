@@ -6,6 +6,8 @@ const startButton = document.querySelector("#start-button");
 const categoryButtons = document.querySelectorAll(".category");
 const categories = ["html", "css", "js"];
 const progressBar = document.querySelector("#progress-bar");
+const AUDIO_CORRECT = new Audio("audio/correct.mp3");
+const AUDIO_WRONG = new Audio("audio/wrong.mp3");
 let questionArray = [];
 let currentQuestion = 0;
 let currentCategory = "html";
@@ -33,8 +35,10 @@ document.addEventListener("click", function (e) {
 function checkAnswer() {
   if (userAnswer !== questionArray[currentQuestion].correctAnswer) {
     colorizeWrongAnswer();
+    AUDIO_WRONG.play();
   } else {
     score++;
+    AUDIO_CORRECT.play();
   }
   colorizeCorrectAnswer();
   closeQuestion();
