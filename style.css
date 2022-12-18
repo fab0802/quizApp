@@ -161,7 +161,8 @@ nav li.selected.disabled {
 }
 
 .start-screen-button button,
-footer button {
+footer button,
+.end-screen button {
   color: hsl(44, 88%, 97%);
   background: hsl(224, 40%, 26%);
   border: 1px solid hsl(224, 40%, 52%);
@@ -274,4 +275,60 @@ footer {
 
 .question-counter {
   font-family: "Rubik", sans-serif;
+}
+
+.end-screen {
+  height: 100%;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.end-screen {
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.end-screen .end-screen-img {
+  width: 8rem;
+  height: 8rem;
+}
+
+.end-screen-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.end-screen h3 {
+  margin-top: 0;
+}
+
+.end-screen h3.score {
+  color: hsl(27, 88%, 56%);
+}
+
+.end-screen h3.score span {
+  margin-left: 1.5rem;
+}
+
+.end-screen button.end-screen-button {
+  background: none;
+  color: hsl(224, 40%, 26%);
+  transition: background 200ms ease-in-out;
+}
+
+.end-screen button.end-screen-button:hover {
+  background: hsl(224, 40%, 26%);
+  color: hsl(44, 88%, 97%);
+}
+
+.end-screen .end-screen-trophy {
+  position: absolute;
+  right: -3rem;
 }

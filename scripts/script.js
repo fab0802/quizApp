@@ -2,6 +2,7 @@
 
 const startScreen = document.querySelector("#start-screen");
 const questionScreen = document.querySelector("#question-screen");
+const endScreen = document.querySelector("#end-screen");
 const startButton = document.querySelector("#start-button");
 const categoryButtons = document.querySelectorAll(".category");
 const categories = ["html", "css", "js"];
@@ -60,6 +61,7 @@ function colorizeWrongAnswer() {
 function startQuiz() {
   startScreen.classList.add("display-none");
   questionScreen.classList.remove("display-none");
+  endScreen.classList.add("display-none");
   fillQuestionArray(currentCategory);
   renderQuestion();
   setCategory(currentCategory);
@@ -68,6 +70,20 @@ function startQuiz() {
   openQuestion();
   score = 0;
   answeredQuestions = 0;
+  setProgress();
+}
+
+function restartQuiz() {
+  startScreen.classList.remove("display-none");
+  questionScreen.classList.add("display-none");
+  endScreen.classList.add("display-none");
+  enableMenu();
+  closeQuestion();
+  quizStarted = false;
+  answeredQuestions = 0;
+  currentQuestion = 0;
+  score = 0;
+  resetProgress();
 }
 
 function closeQuestion() {
@@ -131,7 +147,7 @@ function nextQuestion() {
       currentQuestion++;
       renderQuestion();
     } else {
-      // TODO show endscreen
+      showEndscreen();
     }
   }
 }
@@ -147,4 +163,15 @@ function setProgress() {
 function resetProgress() {
   progressBar.style.right = "100%";
   progressBar.classList.remove("progress-bar-full");
+}
+
+function showEndscreen() {
+  questionScreen.classList.add("display-none");
+  endScreen.classList.remove("display-none");
+  renderScore();
+}
+
+function renderScore() {
+  const scoreContainer = document.querySelector("#score");
+  scoreContainer.innerHTML = `${score} / ${questionArray.length}`;
 }

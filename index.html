@@ -35,6 +35,21 @@
           </div>
         </div>
         <div class="question-screen display-none" id="question-screen"></div>
+        <div class="end-screen display-none" id="end-screen">
+          <img class="end-screen-img" src="img/brain result.png" />
+          <div class="end-screen-text">
+            <h3>Complete</h3>
+            <h3 class="score">your score <span id="score"></span></h3>
+            <button
+              class="end-screen-button"
+              id="end-screen-button"
+              onclick="restartQuiz()"
+            >
+              replay
+            </button>
+          </div>
+          <div class="end-screen-trophy"><img src="img/tropy.png" /></div>
+        </div>
       </section>
     </main>
     <script src="scripts/quiz.js"></script>
