@@ -20,7 +20,76 @@ let isQuestionOpen = false;
 
 startButton.addEventListener("click", startQuiz);
 
-document.addEventListener("click", function (e) {
+function startQuiz() {
+  startScreen.classList.add("display-none");
+  questionScreen.classList.remove("display-none");
+  endScreen.classList.add("display-none");
+  fillQuestionArray(currentCategory);
+  renderQuestion();
+  setCategory(currentCategory);
+  disableMenu();
+  quizStarted = true;
+  openQuestion();
+  score = 0;
+  answeredQuestions = 0;
+  setProgress();
+}
+
+function fillQuestionArray(category) {
+  questionArray = quiz.filter((question) => {
+    return question.category === category;
+  });
+}
+
+function setCategory(category) {
+  for (let categoryButton of categoryButtons) {
+    categoryButton.classList.remove("selected");
+    if (categoryButton.id === category) {
+      categoryButton.classList.add("selected");
+    }
+  }
+  currentCategory = category;
+}
+
+function renderQuestion() {
+  questionScreen.innerHTML = createQuestionHtml();
+}
+
+function disableMenu() {
+  for (let categoryButton of categoryButtons)
+    categoryButton.classList.add("disabled");
+}
+
+function enableMenu() {
+  for (let categoryButton of categoryButtons)
+    categoryButton.classList.remove("disabled");
+}
+
+function openQuestion() {
+  const answersContainer = document.querySelector("#answers");
+  answersContainer.classList.remove("closed");
+  isQuestionOpen = true;
+  disableNextButton();
+}
+
+function closeQuestion() {
+  const answersContainer = document.querySelector("#answers");
+  answersContainer.classList.add("closed");
+  isQuestionOpen = false;
+  enableNextButton();
+}
+
+function setProgress() {
+  if (answeredQuestions === questionArray.length) {
+    progressBar.classList.add("progress-bar-full");
+  }
+  const progress = 100 - (100 * answeredQuestions) / questionArray.length;
+  progressBar.style.right = `${progress}%`;
+}
+
+document.addEventListener("click", checkMenunAndAnswerClick);
+
+function checkMenunAndAnswerClick(e) {
   // check click on menu items
   if (categories.includes(e.target.id) && !quizStarted)
     setCategory(e.target.id);
@@ -31,7 +100,7 @@ document.addEventListener("click", function (e) {
     checkAnswer();
     setProgress();
   }
-});
+}
 
 function checkAnswer() {
   if (userAnswer !== questionArray[currentQuestion].correctAnswer) {
@@ -58,21 +127,6 @@ function colorizeWrongAnswer() {
   wrongAnswerRow.classList.add("wrong");
 }
 
-function startQuiz() {
-  startScreen.classList.add("display-none");
-  questionScreen.classList.remove("display-none");
-  endScreen.classList.add("display-none");
-  fillQuestionArray(currentCategory);
-  renderQuestion();
-  setCategory(currentCategory);
-  disableMenu();
-  quizStarted = true;
-  openQuestion();
-  score = 0;
-  answeredQuestions = 0;
-  setProgress();
-}
-
 function restartQuiz() {
   startScreen.classList.remove("display-none");
   questionScreen.classList.add("display-none");
@@ -86,30 +140,6 @@ function restartQuiz() {
   resetProgress();
 }
 
-function closeQuestion() {
-  const answersContainer = document.querySelector("#answers");
-  answersContainer.classList.add("closed");
-  isQuestionOpen = false;
-  enableNextButton();
-}
-
-function openQuestion() {
-  const answersContainer = document.querySelector("#answers");
-  answersContainer.classList.remove("closed");
-  isQuestionOpen = true;
-  disableNextButton();
-}
-
-function disableMenu() {
-  for (let categoryButton of categoryButtons)
-    categoryButton.classList.add("disabled");
-}
-
-function enableMenu() {
-  for (let categoryButton of categoryButtons)
-    categoryButton.classList.remove("disabled");
-}
-
 function disableNextButton() {
   const nextButton = document.querySelector("#next-button");
   nextButton.classList.add("disabled");
@@ -118,26 +148,6 @@ function disableNextButton() {
 function enableNextButton() {
   const nextButton = document.querySelector("#next-button");
   nextButton.classList.remove("disabled");
-}
-
-function renderQuestion() {
-  questionScreen.innerHTML = createQuestionHtml();
-}
-
-function setCategory(category) {
-  for (let categoryButton of categoryButtons) {
-    categoryButton.classList.remove("selected");
-    if (categoryButton.id === category) {
-      categoryButton.classList.add("selected");
-    }
-  }
-  currentCategory = category;
-}
-
-function fillQuestionArray(category) {
-  questionArray = quiz.filter((question) => {
-    return question.category === category;
-  });
 }
 
 function nextQuestion() {
@@ -150,14 +160,6 @@ function nextQuestion() {
       showEndscreen();
     }
   }
-}
-
-function setProgress() {
-  if (answeredQuestions === questionArray.length) {
-    progressBar.classList.add("progress-bar-full");
-  }
-  const progress = 100 - (100 * answeredQuestions) / questionArray.length;
-  progressBar.style.right = `${progress}%`;
 }
 
 function resetProgress() {
